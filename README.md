@@ -119,7 +119,7 @@ $ cd ~ $ git clone https://github.com/Itseez/opencv.git
 $ cd opencv 
 $ git checkout 3.0.0
 ```
->You can replace the 3.0.0  version with whatever the current release is (as of right now, it’s 3.1.0 ). 
+>You can replace the 3.0.0  version with whatever the current release is. 
 >Be sure to check OpenCV.org for information on the latest release.
 
 We also need the opencv_contrib repo as well. Without this repository, we won’t have access to standard keypoint detectors and local invariant descriptors (such as SIFT, SURF, etc.) that were available in the OpenCV 2.4.X version. We’ll also be missing out on some of the newer OpenCV 3.0 features like text detection in natural images:
@@ -184,8 +184,49 @@ Your output should be:
 ```
 
 ### iii.Tensorflow
-  
+
+For the installation of TensorFlow we can follow the instruction in the Official Turorial, linked at the end, for the Ubuntu case, after activate the envirorment:
+```
+pip install https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.5.0-cp27-none-linux_x86_64.whl 
+```
+Test the installation, open a terminal and type the following:
+```
+$ workon cv 
+$ python
+...
+>>> import tensorflow as tf
+>>> hello = tf.constant('Hello, TensorFlow!')
+>>> sess = tf.Session()
+>>> print(sess.run(hello))
+Hello, TensorFlow!
+>>> a = tf.constant(10)
+>>> b = tf.constant(32)
+>>> print(sess.run(a + b))
+42
+>>>
+```	
+Let’s run a Model:
+```
+$ cd /lib/python2.7/dist-packages/tensorflow/models/image/mnist/
+$ workon cv
+$ python convolutional.py
+```
 ### iv.CUDA
+  
+Here is covered only the setup of a the preinstalled CUDA, for an indeep tutorial follow the Official One for TensorfFlow or for MAC OSX (Both linked at the end) :
+
+####Setup GPUs
+
+#####1) Download CUDA 6.5
+```
+$ cd ~
+$ wget https://s3-eu-west-1.amazonaws.com/christopherbourez/public/cudnn-6.5-linux-x64-v2.tgz
+```
+#####2) Add to your .bashrc
+```	
+$ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda-7.0/lib64:/home/users/N!OMUSUARI/cudnn-6.5-linux-x64-v2"
+$ export CUDA_HOME=/usr/local/cuda-7.0
+```
   
 ### v.Other Libraries
   
