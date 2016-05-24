@@ -1,10 +1,10 @@
-# Buil-Research-Envirorment-with-Tensorflow-OpenCV-Python
+# Build-Research-Envirorment-with-Tensorflow-OpenCV-Python
 (Version 0.1, Last Update 24/05/2016)
 
 Tutorial on how to build your own research envirorment for Deep Learning with OpenCV, Python, Tensorfow on Linux Machine.
+This Repository try to be a clear summary of the many guides you can find online (I will link in Referencies all the guides, I used to compose this Repository-Tutorial)
 
-
-The Project  follow the below **index**:
+The Project follow the below **index**:
 
 1. **Introduction to the Problem;**
 2. **Possible Solutions;**
@@ -229,7 +229,31 @@ $ export CUDA_HOME=/usr/local/cuda-7.0
 ```
   
 ### v.Other Libraries
-  
+ To install other libraries, with the Virtual Environment activated you have just to type:
+ ```	
+$ pip install packege-name
+```
+Some usefull, could be:
+- Pillow (https://pypi.python.org/pypi/Pillow);
+- ProgressBar(https://pypi.python.org/pypi/progressbar);
+- Pandas(http://pandas.pydata.org/);
+ (I will update the list when i found someone useful)
 ##4. Conclusions
+
+At the end of the guide we have OpenCV, VirtualEnv and CUDA globally installed on our machine.
+Then we have Python and Tensorflow installed and working on the VirtualEnv, in this way we have the global and fixed libraries installed correctly and inside the environment all the python Libraries and Tensorflow to not get in conflict with the global ones.
+
 ##5. References
+Here below all the usefull link to tutorial, guides that I used:
+- Guide VirtualEnv+OpenCV for Linux(http://www.pyimagesearch.com/2015/06/22/install-opencv-3-0-and-python-2-7-on-ubuntu/);
+- Guide VirtualEnv+OpenCV for MacOSX(http://www.pyimagesearch.com/2015/06/15/install-opencv-3-0-and-python-2-7-on-osx/);
+- Official Guide to install OpenCV(http://docs.opencv.org/3.0-last-rst/doc/tutorials/introduction/linux_install/linux_install.html)
+- Official Guide to install Tensorflow(https://www.tensorflow.org/versions/r0.8/get_started/os_setup.html#virtualenv-installation)
+- Official Guide to install CUDA MacOSX(http://docs.nvidia.com/cuda/cuda-installation-guide-mac-os-x/index.html#installation)
+- Official Guide to install CUDA Linux(http://docs.nvidia.com/cuda/cuda-getting-started-guide-for-linux/#axzz49aYMjbtZ)
+
 ##6. Copyright
+
+According to the LICENSE file of the original code,
+- Me and original author hold no liability for any damages;
+- Do not use this on commercial!.
