@@ -42,7 +42,7 @@ This last one is the one, covered in this Tutorial.
 
 **Why Virtual Environment?**
 
-Why is easy, Virtual Envirorments lets us to have different dependencies, libraries, updates, of the same or different software, without struggling with error due to mislink or new apis.
+Why is easy: **Virtual Envirorments** lets us to have different dependencies, libraries, updates, of the same or different software, without struggling with error due to mislink or new apis.
 
 The tutorial code consider you are the owner and have all grants to run **sudo** , if you  wanna apply the tutorial to a server you have to ask your administrator to install OpenCV & CUDA on the machine and give you the path to export into the bashrc file, for VirtualEnv, Tensorflow, Python nothing change.
 
