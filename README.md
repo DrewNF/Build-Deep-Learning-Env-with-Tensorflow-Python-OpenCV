@@ -237,7 +237,9 @@ Some usefull, could be:
 - Pillow (https://pypi.python.org/pypi/Pillow);
 - ProgressBar(https://pypi.python.org/pypi/progressbar);
 - Pandas(http://pandas.pydata.org/);
+
  (I will update the list when i found someone useful)
+
 ##4. Conclusions
 
 At the end of the guide we have OpenCV, VirtualEnv and CUDA globally installed on our machine.
