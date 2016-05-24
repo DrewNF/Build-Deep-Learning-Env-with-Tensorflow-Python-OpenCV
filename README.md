@@ -1,7 +1,7 @@
 # Buil-Research-Envirorment-with-Tensorflow-OpenCV-Python
 (Version 0.1, Last Update 24/05/2016)
 
-Tutorial on how to build your own research envirorment for Deep Learning with OpenCV, Python, Tensorfow
+Tutorial on how to build your own research envirorment for Deep Learning with OpenCV, Python, Tensorfow on Linux Machine.
 
 
 The Project  follow the below **index**:
@@ -112,9 +112,77 @@ Since OpenCV represents images as multi-dimensional NumPy arrays, we better inst
 ```
 $ pip install numpy
 ```
-
 ### ii.OpenCV
-  
+Our environment is now all setup, we can proceed to change to our home directory, pull down OpenCV from GitHub, and checkout the 3.0.0  version:
+```
+$ cd ~ $ git clone https://github.com/Itseez/opencv.git
+$ cd opencv 
+$ git checkout 3.0.0
+```
+>You can replace the 3.0.0  version with whatever the current release is (as of right now, it’s 3.1.0 ). 
+>Be sure to check OpenCV.org for information on the latest release.
+
+We also need the opencv_contrib repo as well. Without this repository, we won’t have access to standard keypoint detectors and local invariant descriptors (such as SIFT, SURF, etc.) that were available in the OpenCV 2.4.X version. We’ll also be missing out on some of the newer OpenCV 3.0 features like text detection in natural images:
+```
+$ cd ~ 
+$ git clone https://github.com/Itseez/opencv_contrib.git 
+$ cd opencv_contrib 
+$ git checkout 3.0.0
+```
+Again, make sure that you checkout the same version for opencv_contrib that you did for opencv above, otherwise you could run into compilation errors.
+Time to setup the build:
+
+```
+$ cd ~/opencv 
+$ mkdir build 
+$ cd build 
+$ cmake -D CMAKE_BUILD_TYPE=RELEASE \ -D CMAKE_INSTALL_PREFIX=/usr/local \ -D INSTALL_C_EXAMPLES=ON \ -D INSTALL_PYTHON_EXAMPLES=ON \ -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib/modules \ -D BUILD_EXAMPLES=ON ..
+```
+
+> Building instructions for OSX, more specified parameters:
+>$ cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local \-D PYTHON2_PACKAGES_PATH=~/.virtualenvs/cv/lib/python2.7/site-packages \-D PYTHON2_LIBRARY=/usr/local/Cellar/python/2.7.10/Frameworks/Python.framework/Versions/2.7/bin \-D PYTHON2_INCLUDE_DIR=/usr/local/Frameworks/Python.framework/Headers \-D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON \-D BUILD_EXAMPLES=ON \-D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib/modules ..
+
+>The compiling options changes depending on the version of python and most depending on how we are installing all the libraries and the dependencies.
+
+
+> In order to build OpenCV 3.1.0, you need to set -D INSTALL_C_EXAMPLES=OFF (rather than ON) in the cmake command. There is a bug in the OpenCV v3.1.0 CMake build script that can cause errors if you leave this switch on. Once you set this switch to off, CMake should run without a problem.
+
+Now we can finally compile OpenCV:
+```
+$ make -j4
+```
+Where you can replace the 4 with the number of available cores on your processor to speedup the compilation.
+				
+**OpenCV Linking**: If we have installed OpenCV globally on your PC and you want to link it to the virtualenv, we need to export the two following paths:
+- ** export PYTHONPATH="${PYTHONPATH}:/my/other/path"**
+(Example of path: /opt/amd64/opencv-3.1.0/lib/python2.7/dist-packages)
+- ** export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/my/other/path"**
+(Example of path: /opt/amd64/opencv-3.1.0/lib)
+
+
+Assuming that OpenCV compiled without error, you can now install it on your Ubuntu system:
+```
+$ sudo make install 
+$ sudo ldconfig
+```
+If you’ve reached this step without an error, OpenCV should now be installed in ** /usr/local/lib/python2.7/site-packages**.
+However, our cv virtual environment is located in our home directory — thus to use OpenCV within our cv environment, we first need to sym-link OpenCV into the site-packages directory of the cv virtual environment:
+```
+$ cd ~/.virtualenvs/cv/lib/python2.7/site-packages/ 
+$ ln -s /usr/local/lib/python2.7/site-packages/cv2.so cv2.so
+```
+Congratulations! You have successfully installed OpenCV 3.0 with Python 2.7+ bindings on your Ubuntu system!
+To confirm your installation, simply ensure that you are in the cv virtual environment, followed by importing cv2:
+```
+$ workon cv 
+$ python 
+```
+Your output should be:
+```
+>>> import cv2
+>>> cv2.__version__ '3.0.0'
+```
+
 ### iii.Tensorflow
   
 ### iv.CUDA
