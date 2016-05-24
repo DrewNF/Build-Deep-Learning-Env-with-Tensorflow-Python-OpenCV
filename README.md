@@ -21,6 +21,13 @@ The Project  follow the below **index**:
 
 
 ##1. Introduction to the Problem
+
+Nowadays, the Deep Learning Area use lots of  different libraries, dependicies, script languages, some of the most known are:
+- Caffè (http://caffe.berkeleyvision.org/);
+- Tensorflow (https://www.tensorflow.org/);
+- Keras (http://keras.io/);
+- OpenCV (http://opencv.org/).
+So Develop & Research on DP, Now means struggle with a 
 ##2. Possible Solutions
 ##3. Virtual Environment
   
