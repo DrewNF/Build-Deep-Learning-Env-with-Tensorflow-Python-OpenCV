@@ -23,10 +23,10 @@ The Project follow the below **index**:
 ##1. Introduction to the Problem
 
 Nowadays, the Deep Learning Area use lots of  different libraries, dependicies, script languages, some of the most known are:
-- Caffè (http://caffe.berkeleyvision.org/);
-- Tensorflow (https://www.tensorflow.org/);
-- Keras (http://keras.io/);
-- OpenCV (http://opencv.org/).
+- [Caffè](http://caffe.berkeleyvision.org/);
+- [Tensorflow](https://www.tensorflow.org/);
+- [Keras](http://keras.io/);
+- [OpenCV](http://opencv.org/).
 
 So Develop & Research on Deep Learning, now means struggle with lots of error, compilation, installation, and some times most of them comes from updates, new library dependecies, let's see which are the possible solutions.
 
@@ -50,11 +50,12 @@ Let's see a four step set up installation for our Research Envirorment with Tens
 
 ### i.Virtual Environment & Python
 
+#### Preparing Linux Machine
+
 Open up a terminal and update the apt-get package manager followed by upgrading any pre-installed packages:
 ```
 $ sudo apt-get update 
 $ sudo apt-get upgrade
-
 ```
 Now we need to install our developer tools:
 ```
@@ -83,38 +84,112 @@ $ sudo apt-get install libatlas-base-dev gfortran
 ```
 Install pip, a Python package manager:
 ```
-$ wget https://bootstrap.pypa.io/get-pip.py $ sudo python get-pip.py
+$ wget https://bootstrap.pypa.io/get-pip.py 
+$ sudo python get-pip.py
+```
+#### Preparing Macintosh OSX Machine
+
+Install [Homebrew](http://brew.sh/):
+```
+$ cd ~
+$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+Update Homebrew:
+
+```
+$ brew update
+```
+Before we proceed, we need to update our PATH  in our ~/.bash_profile file to indicate that we want to use Homebrew packages before any system libraries or packages. **This is an absolutely critical step, so be sure not to skip it!**
+
+Open up your ~/.bash_profile  (if it does not exist, create it), and append the following lines:
+
+```
+# Homebrew
+export PATH=/usr/local/bin:$PATH
+```
+Then reload the our ~/.bash_profile:
+
+```
+$ source ~/.bash_profile
 ```
 
-Install virtualenv and virtualenvwrapper.These two packages allow us to create separate Python environments for each project we are working on. While installing virtualenv  and virtualenvwrapper is not a requirement to get OpenCV 3.0 and Python 2.7+ up and running on your Ubuntu system, I highly recommend it and the rest of this tutorial will assume you have them installed!
+And test:
+
 ```
+$ which python
+
+### OUTPUT MUST BE ###
+/usr/local/bin/python
+```
+First, we’ll use brew to install the required developers tools:
+
+```
+$ brew install cmake pkg-config
+$ brew install jpeg libpng libtiff openexr
+$ brew install eigen tbb
+```
+
+We are now ready to set up the Virtual Env
+
+#### Set Up the Virtual Env
+
+Install virtualenv and virtualenvwrapper.These two packages allow us to create separate Python environments for each project we are working on. While installing virtualenv  and virtualenvwrapper is not a requirement to get OpenCV 3.0 and Python 2.7+ up and running on your Ubuntu system, I highly recommend it and the rest of this tutorial will assume you have them installed!
+
+```
+### Linux
+
 $ sudo pip install virtualenv virtualenvwrapper 
 $ sudo rm -rf ~/.cache/pip
+
+### Macintosh OSX
+
+$ pip install virtualenv virtualenvwrapper
 ```
-Now that we have virtualenv  and virtualenvwrapper  installed, we need to update our ~/.bashrc  file:
+Now that we have virtualenv  and virtualenvwrapper  installed, we need to update our ~/.bashrc/ file:
 ```
-$ export WORKON_HOME=$HOME/.virtualenvs source /usr/local/bin/virtualenvwrapper.sh
+### Linux
+
+$ export WORKON_HOME=$HOME/.virtualenvs 
+
+### Linux & Macintosh OSX
+
+$ source /usr/local/bin/virtualenvwrapper.sh
 ```
 This quick update will ensure that both virtualenv  and virtualenvwrapper  are loaded each time you login.
-To make the changes to our ~/.bashrc  file take effect, you can either (1) logout and log back in, (2) close your current terminal window and open a new one, or preferably, (3) reload the contents of your ~/.bashrc  file:
+To make the changes to our ~/.bashrc or ~/.bash_profile file take effect, you can either (1) logout and log back in, (2) close your current terminal window and open a new one, or preferably, (3) reload the contents of your ~/.bashrc or ~/.bash_profile file:
+
 ```
+### Linux 
+
 $ source ~/.bashrc
+
+### Macintosh OSX
+
+$ source ~/.bash_profile
 ```
 Lastly, we can create our cv  virtual environment where we’ll be doing our computer vision development and OpenCV 3.0 + Python 2.7+ installation:
 ```
+### Linux & Macintosh OSX
+
 $ mkvirtualenv cv
 ```
 As I mentioned above, this tutorial covers how to install OpenCV 3.0 and Python 2.7+, so we’ll need to install our Python 2.7 development tools:
 ```
+### Linux
+
 $ sudo apt-get install python2.7-dev
 ```
 Since OpenCV represents images as multi-dimensional NumPy arrays, we better install NumPy into our cv  virtual environment:
 ```
+### Linux & Macintosh OSX
+
 $ pip install numpy
 ```
 ### ii.OpenCV
 Our environment is now all setup, we can proceed to change to our home directory, pull down OpenCV from GitHub, and checkout the 3.0.0  version:
 ```
+### Linux & Macintosh OSX
+
 $ cd ~ $ git clone https://github.com/Itseez/opencv.git
 $ cd opencv 
 $ git checkout 3.0.0
@@ -124,6 +199,8 @@ $ git checkout 3.0.0
 
 We also need the opencv_contrib repo as well. Without this repository, we won’t have access to standard keypoint detectors and local invariant descriptors (such as SIFT, SURF, etc.) that were available in the OpenCV 2.4.X version. We’ll also be missing out on some of the newer OpenCV 3.0 features like text detection in natural images:
 ```
+### Linux & Macintosh OSX
+
 $ cd ~ 
 $ git clone https://github.com/Itseez/opencv_contrib.git 
 $ cd opencv_contrib 
@@ -133,14 +210,39 @@ Again, make sure that you checkout the same version for opencv_contrib that you 
 Time to setup the build:
 
 ```
+### Linux & Macintosh OSX
+
 $ cd ~/opencv 
 $ mkdir build 
 $ cd build 
+
+### Linux 
+
 $ cmake -D CMAKE_BUILD_TYPE=RELEASE \ -D CMAKE_INSTALL_PREFIX=/usr/local \ -D INSTALL_C_EXAMPLES=ON \ -D INSTALL_PYTHON_EXAMPLES=ON \ -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib/modules \ -D BUILD_EXAMPLES=ON ..
+
+### Macintosh OSX
+
+$ cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local \
+	-D PYTHON2_PACKAGES_PATH=~/.virtualenvs/cv/lib/python2.7/site-packages \
+	-D PYTHON2_LIBRARY=/usr/local/Cellar/python/2.7.10/Frameworks/Python.framework/Versions/2.7/bin \
+	-D PYTHON2_INCLUDE_DIR=/usr/local/Frameworks/Python.framework/Headers \
+	-D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON \
+	-D BUILD_EXAMPLES=ON \
+	-D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib/modules ..
 ```
 
-> Building instructions for OSX, more specified parameters:
->$ cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local \-D PYTHON2_PACKAGES_PATH=~/.virtualenvs/cv/lib/python2.7/site-packages \-D PYTHON2_LIBRARY=/usr/local/Cellar/python/2.7.10/Frameworks/Python.framework/Versions/2.7/bin \-D PYTHON2_INCLUDE_DIR=/usr/local/Frameworks/Python.framework/Headers \-D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON \-D BUILD_EXAMPLES=ON \-D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib/modules ..
+Here some **very important options**, read carefully :
+
+    CMAKE_BUILD_TYPE : This option indicates that we are building a release binary of OpenCV.
+    CMAKE_INSTALL_PREFIX : The base directory where OpenCV will be installed.
+    PYTHON2_PACKAGES_PATH : The explicit path to where our site-packages  directory lives in our cv  virtual environment.
+    PYTHON2_LIBRARY : Path to our Hombrew installation of Python.
+    PYTHON2_INCLUDE_DIR : The path to our Python header files for compilation.
+    INSTALL_C_EXAMPLES : Indicate that we want to install the C/C++ examples after compilation.
+    INSTALL_PYTHON_EXAMPLES : Indicate that we want to install the Python examples after complication.
+    BUILD_EXAMPLES : A flag that determines whether or not the included OpenCV examples will be compiled or not.
+    OPENCV_EXTRA_MODULES_PATH : This option is extremely important — here we supply the path to the opencv_contrib repo 
+    				that we pulled down earlier, indicating that OpenCV should compile the extra modules as well.
 
 >The compiling options changes depending on the version of python and most depending on how we are installing all the libraries and the dependencies.
 
@@ -149,6 +251,8 @@ $ cmake -D CMAKE_BUILD_TYPE=RELEASE \ -D CMAKE_INSTALL_PREFIX=/usr/local \ -D IN
 
 Now we can finally compile OpenCV:
 ```
+### Linux & Macintosh OSX
+
 $ make -j4
 ```
 Where you can replace the 4 with the number of available cores on your processor to speedup the compilation.
@@ -162,19 +266,36 @@ Where you can replace the 4 with the number of available cores on your processor
 
 Assuming that OpenCV compiled without error, you can now install it on your Ubuntu system:
 ```
+### Linux & Macintosh OSX
+
 $ sudo make install 
 $ sudo ldconfig
 ```
 If you’ve reached this step without an error, OpenCV should now be installed in ** /usr/local/lib/python2.7/site-packages**.
 However, our cv virtual environment is located in our home directory — thus to use OpenCV within our cv environment, we first need to sym-link OpenCV into the site-packages directory of the cv virtual environment:
 ```
+### Linux 
+
 $ cd ~/.virtualenvs/cv/lib/python2.7/site-packages/ 
 $ ln -s /usr/local/lib/python2.7/site-packages/cv2.so cv2.so
+
+### Macintosh OSX
+
+ 	
+$ cd ~/.virtualenvs/cv/lib/python2.7/site-packages/
+$ ls -l cv2.so 
+-rwxr-xr-x  1 adrian  staff  2013052 Jun  5 15:20 cv2.so
+
 ```
-Congratulations! You have successfully installed OpenCV 3.0 with Python 2.7+ bindings on your Ubuntu system!
+**Congratulations! You have successfully installed OpenCV 3.0 with Python 2.7+ bindings on your Linux/MacintoshOSX system!**
 To confirm your installation, simply ensure that you are in the cv virtual environment, followed by importing cv2:
 ```
+### Linux 
+
 $ workon cv 
+
+### Linux & Macintosh OSX
+
 $ python 
 ```
 Your output should be:
@@ -247,12 +368,12 @@ Then we have Python and Tensorflow installed and working on the VirtualEnv, in t
 
 ##5. References
 Here below all the usefull link to tutorial, guides that I used:
-- Guide VirtualEnv+OpenCV for Linux(http://www.pyimagesearch.com/2015/06/22/install-opencv-3-0-and-python-2-7-on-ubuntu/);
-- Guide VirtualEnv+OpenCV for MacOSX(http://www.pyimagesearch.com/2015/06/15/install-opencv-3-0-and-python-2-7-on-osx/);
-- Official Guide to install OpenCV(http://docs.opencv.org/3.0-last-rst/doc/tutorials/introduction/linux_install/linux_install.html)
-- Official Guide to install Tensorflow(https://www.tensorflow.org/versions/r0.8/get_started/os_setup.html#virtualenv-installation)
-- Official Guide to install CUDA MacOSX(http://docs.nvidia.com/cuda/cuda-installation-guide-mac-os-x/index.html#installation)
-- Official Guide to install CUDA Linux(http://docs.nvidia.com/cuda/cuda-getting-started-guide-for-linux/#axzz49aYMjbtZ)
+- [Guide VirtualEnv+OpenCV for Linux](http://www.pyimagesearch.com/2015/06/22/install-opencv-3-0-and-python-2-7-on-ubuntu/);
+- [Guide VirtualEnv+OpenCV for MacOSX](http://www.pyimagesearch.com/2015/06/15/install-opencv-3-0-and-python-2-7-on-osx/);
+- [Official Guide to install OpenCV](http://docs.opencv.org/3.0-last-rst/doc/tutorials/introduction/linux_install/linux_install.html);
+- [Official Guide to install Tensorflow](https://www.tensorflow.org/versions/r0.8/get_started/os_setup.html#virtualenv-installation);
+- [Official Guide to install CUDA MacOSX](http://docs.nvidia.com/cuda/cuda-installation-guide-mac-os-x/index.html#installation);
+- [Official Guide to install CUDA Linux](http://docs.nvidia.com/cuda/cuda-getting-started-guide-for-linux/#axzz49aYMjbtZ).
 
 ##6. Copyright
 
