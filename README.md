@@ -10,6 +10,9 @@ The Project follow the below **index**:
 2. **[Possible Solutions](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#2-possible-solutions);**
 3. **[Virtual Environment](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#3-virtual-environment)**
       1. **[Virtual Environment & Python](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#ivirtual-environment--python);**
+      		i.**[Preparing Linux Machine](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#preparing-linux-machine);**
+		ii.**[Preparing Macintosh OSX Machine](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#preparing-macintosh-osx-machine);**
+		iii.**[Set Up the Virtual Env](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#set-up-the-virtual-env);**
       2. **[OpenCV](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#iiopencv);**
       3. **[Tensorflow](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#iiitensorflow);**
       4. **[CUDA](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#ivcuda);**
@@ -50,7 +53,7 @@ Let's see a four step set up installation for our Research Envirorment with Tens
 
 ### i.Virtual Environment & Python
 
-#### Preparing Linux Machine
+#### i.Preparing Linux Machine
 
 Open up a terminal and update the apt-get package manager followed by upgrading any pre-installed packages:
 ```
@@ -87,7 +90,7 @@ Install pip, a Python package manager:
 $ wget https://bootstrap.pypa.io/get-pip.py 
 $ sudo python get-pip.py
 ```
-#### Preparing Macintosh OSX Machine
+#### ii.Preparing Macintosh OSX Machine
 
 Install [Homebrew](http://brew.sh/):
 ```
@@ -131,7 +134,7 @@ $ brew install eigen tbb
 
 We are now ready to set up the Virtual Env
 
-#### Set Up the Virtual Env
+#### iii.Set Up the Virtual Env
 
 Install virtualenv and virtualenvwrapper.These two packages allow us to create separate Python environments for each project we are working on. While installing virtualenv  and virtualenvwrapper is not a requirement to get OpenCV 3.0 and Python 2.7+ up and running on your Ubuntu system, I highly recommend it and the rest of this tutorial will assume you have them installed!
 
