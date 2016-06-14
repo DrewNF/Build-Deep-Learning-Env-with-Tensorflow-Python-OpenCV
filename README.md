@@ -10,6 +10,7 @@ The Project follow the below **index**:
 2. **[Possible Solutions](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#2-possible-solutions);**
 3. **[Virtual Environment](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#3-virtual-environment)**
       1. **[Virtual Environment & Python](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#ivirtual-environment--python);**
+      
       		i.**[Preparing Linux Machine](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#preparing-linux-machine);**
 		ii.**[Preparing Macintosh OSX Machine](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#preparing-macintosh-osx-machine);**
 		iii.**[Set Up the Virtual Env](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#set-up-the-virtual-env);**
