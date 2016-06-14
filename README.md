@@ -423,7 +423,7 @@ $ pip install packege-name
 Some usefull, could be:
 - [Pillow](https://pypi.python.org/pypi/Pillow);
 - [ProgressBar](https://pypi.python.org/pypi/progressbar);
-- [Pandas](http://pandas.pydata.org/);
+- [Pandas](http://pandas.pydata.org/).
 
  (I will update the list when i found someone useful)
 
