@@ -7,16 +7,16 @@ This Repository try to be a clear summary of the many guides you can find online
 The Project follow the below **index**:
 
 1. **[Introduction to the Problem](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#1-introduction-to-the-problem);**
-2. **Possible Solutions;**
-3. **Virtual Environment**
-      1. **Virtual Environment & Python;**
-      2. **OpenCV;**
-      3. **Tensorflow;**
-      4. **CUDA;**
-      5. **Other Libraries;**
-4. **Conclusions;**
-5. **References;**
-6. **Copyright**
+2. **[Possible Solutions](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#2-possible-solutions);**
+3. **[Virtual Environment](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#3-virtual-environment)**
+      1. **[Virtual Environment & Python](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#ivirtual-environment--python);**
+      2. **[OpenCV](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#iiopencv);**
+      3. **[Tensorflow](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#iiitensorflow);**
+      4. **[CUDA](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#ivcuda);**
+      5. **[Other Libraries](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#vother-libraries);**
+4. **[Conclusions](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#4-conclusions);**
+5. **[References](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#5-references);**
+6. **[Copyright](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#6-copyright).**
 
 
 
@@ -355,9 +355,9 @@ $ export CUDA_HOME=/usr/local/cuda-7.0
 $ pip install packege-name
 ```
 Some usefull, could be:
-- Pillow (https://pypi.python.org/pypi/Pillow);
-- ProgressBar(https://pypi.python.org/pypi/progressbar);
-- Pandas(http://pandas.pydata.org/);
+- [Pillow](https://pypi.python.org/pypi/Pillow);
+- [ProgressBar](https://pypi.python.org/pypi/progressbar);
+- [Pandas](http://pandas.pydata.org/);
 
  (I will update the list when i found someone useful)
 
