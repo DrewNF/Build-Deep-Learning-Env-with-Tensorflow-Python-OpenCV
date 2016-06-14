@@ -1,4 +1,4 @@
-# Build-Research-Envirorment-with-Tensorflow-OpenCV-Python
+# Build Deep Learning Env with Tensorflow Python OpenCV
 (Version 0.1, Last Update 24/05/2016)
 
 Tutorial on how to build your own research envirorment for Deep Learning with OpenCV, Python, Tensorfow on Linux Machine.
