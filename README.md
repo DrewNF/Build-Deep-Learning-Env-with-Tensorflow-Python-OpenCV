@@ -50,11 +50,11 @@ Let's see a four step set up installation for our Research Envirorment with Tens
 
 ### i.Virtual Environment & Python
 
--**[Preparing LinuxMachine](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#-preparing-linux-machine);**
--**[Preparing Macintosh OSX Machine](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#-preparing-macintosh-osx-machine);**
--**[Set Up the Virtual Env](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#-set-up-the-virtual-env);**
+- **[Preparing LinuxMachine](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#-preparing-linux-machine);**
+- **[Preparing Macintosh OSX Machine](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#-preparing-macintosh-osx-machine);**
+- **[Set Up the Virtual Env](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#-set-up-the-virtual-env);**
 
-#### -Preparing Linux Machine
+#### - Preparing Linux Machine
 
 Open up a terminal and update the apt-get package manager followed by upgrading any pre-installed packages:
 ```
@@ -91,7 +91,7 @@ Install pip, a Python package manager:
 $ wget https://bootstrap.pypa.io/get-pip.py 
 $ sudo python get-pip.py
 ```
-#### -Preparing Macintosh OSX Machine
+#### - Preparing Macintosh OSX Machine
 
 Install [Homebrew](http://brew.sh/):
 ```
@@ -135,7 +135,7 @@ $ brew install eigen tbb
 
 We are now ready to set up the Virtual Env
 
-#### -Set Up the Virtual Env
+#### - Set Up the Virtual Env
 
 Install virtualenv and virtualenvwrapper.These two packages allow us to create separate Python environments for each project we are working on. While installing virtualenv  and virtualenvwrapper is not a requirement to get OpenCV 3.0 and Python 2.7+ up and running on your Ubuntu system, I highly recommend it and the rest of this tutorial will assume you have them installed!
 
