@@ -6,7 +6,7 @@ This Repository try to be a clear summary of the many guides you can find online
 
 The Project follow the below **index**:
 
-1. **Introduction to the Problem;**
+1. **[Introduction to the Problem](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#1-introduction-to-the-problem);**
 2. **Possible Solutions;**
 3. **Virtual Environment**
       1. **Virtual Environment & Python;**
