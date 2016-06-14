@@ -10,14 +10,6 @@ The Project follow the below **index**:
 2. **[Possible Solutions](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#2-possible-solutions);**
 3. **[Virtual Environment](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#3-virtual-environment)**
       1. **[Virtual Environment & Python](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#ivirtual-environment--python);**
-   
-
-		-**[Preparing LinuxMachine](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#preparing-linux-machine);**
-
-		-**[Preparing Macintosh OSX Machine](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#preparing-macintosh-osx-machine);**
-
-		-**[Set Up the Virtual Env](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#set-up-the-virtual-env);**
-		
       2. **[OpenCV](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#iiopencv);**
       3. **[Tensorflow](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#iiitensorflow);**
       4. **[CUDA](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#ivcuda);**
@@ -57,6 +49,10 @@ The tutorial code consider you are the owner and have all grants to run **sudo**
 Let's see a four step set up installation for our Research Envirorment with Tensorflow, OpenCV, Python, CUDA and all the libraries that we could need:
 
 ### i.Virtual Environment & Python
+
+-**[Preparing LinuxMachine](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#-preparing-linux-machine);**
+-**[Preparing Macintosh OSX Machine](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#-preparing-macintosh-osx-machine);**
+-**[Set Up the Virtual Env](https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV/blob/master/README.md#-set-up-the-virtual-env);**
 
 #### -Preparing Linux Machine
 
@@ -301,10 +297,11 @@ To confirm your installation, simply ensure that you are in the cv virtual envir
 ### Linux 
 
 $ workon cv 
-
-### Linux & Macintosh OSX
-
 $ python 
+
+### Macintosh OSX
+
+(cv)$ python 
 ```
 Your output should be:
 ```
@@ -316,12 +313,61 @@ Your output should be:
 
 For the installation of TensorFlow we can follow the instruction in the Official Turorial, linked at the end, for the Ubuntu case, after activate the envirorment:
 ```
-pip install https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.5.0-cp27-none-linux_x86_64.whl 
+### Linux 64-bit, CPU only, Python 2.7
+
+(cv)$ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.9.0rc0-cp27-none-linux_x86_64.whl
+
+### Linux 64-bit, GPU enabled, Python 2.7 
+## Requires CUDA toolkit 7.5 and CuDNN v4. For other versions, see "Install from sources" below.
+
+(cv)$ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.9.0rc0-cp27-none-linux_x86_64.whl
+
+### Mac OS X, CPU only, Python 2.7:
+
+(cv)$ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/mac/tensorflow-0.9.0rc0-py2-none-any.whl
+
+### Linux 64-bit, CPU only, Python 3.4
+
+(cv)$ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.9.0rc0-cp34-cp34m-linux_x86_64.whl
+
+###  Linux 64-bit, GPU enabled, Python 3.4 
+## Requires CUDA toolkit 7.5 and CuDNN v4. For other versions, see "Install from sources" below.
+
+(cv)$ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.9.0rc0-cp34-cp34m-linux_x86_64.whl
+
+### Linux 64-bit, CPU only, Python 3.5
+
+(cv)$ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.9.0rc0-cp35-cp35m-linux_x86_64.whl
+
+### Linux 64-bit, GPU enabled, Python 3.5 
+## Requires CUDA toolkit 7.5 and CuDNN v4. For other versions, see "Install from sources" below.
+
+(cv)$ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.9.0rc0-cp35-cp35m-linux_x86_64.whl
+
+### Mac OS X, CPU only, Python 3.4 or 3.5:
+
+(cv)$ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/mac/tensorflow-0.9.0rc0-py3-none-any.whl
+
+### Linux & Macintosh OSX
+
+# Python 2
+(tensorflow)$ sudo pip install --upgrade $TF_BINARY_URL
+
+# Python 3
+(tensorflow)$ sudo pip3 install --upgrade $TF_BINARY_URL
+
 ```
 Test the installation, open a terminal and type the following:
 ```
+### Linux 
+
 $ workon cv 
 $ python
+
+### Linux & Macintosh OSX
+
+(cv)$ python
+
 ...
 >>> import tensorflow as tf
 >>> hello = tf.constant('Hello, TensorFlow!')
@@ -336,9 +382,9 @@ Hello, TensorFlow!
 ```	
 Let’s run a Model:
 ```
-$ cd /lib/python2.7/dist-packages/tensorflow/models/image/mnist/
-$ workon cv
-$ python convolutional.py
+### Linux & Macintosh OSX
+
+$ python -m tensorflow.models.image.mnist.convolutional
 ```
 ### iv.CUDA
   
@@ -346,21 +392,33 @@ Here is covered only the setup of a the preinstalled CUDA, for an indeep tutoria
 
 ####Setup GPUs
 
-#####1) Download CUDA 6.5
+#####1) Download cuDNN 6.5
 ```
+### Linux & Macintosh OSX
+
 $ cd ~
 $ wget https://s3-eu-west-1.amazonaws.com/christopherbourez/public/cudnn-6.5-linux-x64-v2.tgz
 ```
 #####2) Add to your .bashrc
-```	
+```
+### Linux & Macintosh OSX
+
 $ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda-7.0/lib64:/home/users/N!OMUSUARI/cudnn-6.5-linux-x64-v2"
 $ export CUDA_HOME=/usr/local/cuda-7.0
 ```
   
 ### v.Other Libraries
+
  To install other libraries, with the Virtual Environment activated you have just to type:
- ```	
+ ```
+ ### Linux & Macintosh OSX
+
 $ pip install packege-name
+
+### Macintosh OSX
+
+$ pip install packege-name
+
 ```
 Some usefull, could be:
 - [Pillow](https://pypi.python.org/pypi/Pillow);
